@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: valentine
+    env: python
+    region: oregon
+    branch: main
+    buildCommand: "poetry install --no-root"
+    startCommand: "gunicorn app:app"
+    autoDeploy: true
+    instanceType: "free"
