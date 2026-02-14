@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's, my love 💖</title>
+    <!-- Bootstrap 5 CSS (pink/red theme) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(145deg, #ffd9e6 0%, #ffb6c1 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .card-love {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(199, 21, 133, 0.3);
+            border: 2px solid #ff99aa;
+            max-width: 800px;
+            width: 100%;
+            padding: 2rem 1.5rem;
+        }
+        .heart-title {
+            color: #b22254;
+            font-weight: 700;
+            text-shadow: 3px 3px 0 #ffc0cb;
+            font-size: 2.8rem;
+        }
+        .btn-love {
+            background-color: #dc143c; /* crimson */
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 14px 30px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: 0 10px 20px #ff4d6d;
+            transition: all 0.3s ease;
+            margin: 10px 8px;
+        }
+        .btn-love:hover {
+            background-color: #b22234;
+            transform: scale(1.07);
+            color: #fff0f5;
+            box-shadow: 0 15px 30px #ff1744;
+        }
+        .btn-outline-love {
+            background-color: #fff0f5;
+            color: #c71585;
+            border: 2px solid #ff69b4;
+            border-radius: 60px;
+            padding: 12px 28px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-outline-love:hover {
+            background-color: #ffe4ec;
+            border-color: #ff1493;
+        }
+        .modal-content {
+            border-radius: 30px;
+            border: 3px solid #ffaeb9;
+            background: #fff9fb;
+        }
+        .modal-header {
+            background-color: #ffb3c6;
+            color: #a10b3a;
+            border-radius: 27px 27px 0 0;
+            justify-content: center;
+            border-bottom: 2px dashed #ff7b9c;
+        }
+        .modal-body {
+            font-size: 1.3rem;
+            color: #a53860;
+            background: #ffe4ec;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .modal-footer {
+            background: #ffccd9;
+            border-radius: 0 0 27px 27px;
+            border-top: 2px dashed #ff7b9c;
+            justify-content: center;
+        }
+        .quote-icon {
+            font-size: 2.5rem;
+            color: #ff2a5e;
+            margin: 0 10px;
+        }
+        .small-note {
+            color: #a63c5a;
+            margin-top: 25px;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        .floating-hearts i {
+            color: #ff3b6f;
+            margin: 0 8px;
+            animation: float 3s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-love text-center">
+        <div class="floating-hearts mb-3">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart" style="animation-delay:0.3s;"></i>
+            <i class="fas fa-heart" style="animation-delay:0.7s;"></i>
+            <i class="fas fa-heart" style="animation-delay:0.2s;"></i>
+            <i class="fas fa-heart" style="animation-delay:0.9s;"></i>
+        </div>
+        <h1 class="heart-title">💗 Happy Valentine's, Prentice 💗</h1>
+        <p class="mt-3 fs-3" style="color: #aa2e5a;">our second year together — and forever to go</p>
+        <p class="mt-4 px-3 fs-4" style="color:#961d42; background: #fff0f5; border-radius: 50px; padding: 1rem;">
+            <i class="fas fa-calendar-alt me-2" style="color:#d43f6b;"></i> 20/06/2024 — the day my world got brighter
+        </p>
+
+        <!-- Two beautiful modal triggers -->
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-5">
+            <!-- sweet message modal trigger (JS modal - but we'll use bootstrap data) but we also add JS flavored modal -->
+            <button type="button" class="btn btn-love" data-bs-toggle="modal" data-bs-target="#messageModal">
+                <i class="fas fa-envelope-open-text me-2"></i>A sweet note for you
+            </button>
+            <!-- another romantic bootstrap modal -->
+            <button type="button" class="btn btn-outline-love" data-bs-toggle="modal" data-bs-target="#promiseModal">
+                <i class="fas fa-infinity me-2"></i>Us, always
+            </button>
+        </div>
+
+        <!-- Bootstrap Modals (beautiful, red/pink, human messages) -->
+        <!-- Modal 1: Sweet message modal -->
+        <div class="modal fade" id="messageModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fs-2" style="color:#b81c44;"><i class="fas fa-heart-circle-plus me-2"></i>For Prentice, with love</h5>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <!-- Real, personal message from user (mixed with one real quote from online, but no names) -->
+                        "Since I met you on 20/06/2024, it has been good and my life has not been the same. Despite the issues we have, we always stick together and tried all the ways to work out. This is our second year of dating and I really love you. I will stick here with you forever and want you to be with me always."
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <div class="mt-4 text-muted" style="font-size:1.1rem;">— from the bottom of my heart</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger px-4 py-2 rounded-pill" data-bs-dismiss="modal" style="background:#ff4d6d;">Forever yours</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 2: Promise / second year modal -->
+        <div class="modal fade" id="promiseModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fs-2" style="color:#a5154b;"><i class="fas fa-ring me-2"></i>Our second year</h5>
+                    </div>
+                    <div class="modal-body">
+                        <i class="fas fa-feather-alt" style="color:#ff708d;"></i>
+                        <!-- Blending personal message again, with a real quote from poet Rumi (fits) but no name mentioned -->
+                        "Every moment is made richer because you're in it. The way you stick by my side through everything makes me believe in forever. As someone once wrote, 'The minute I heard my first love story, I started looking for you.' I found you on 20/06/2024. Second year and I'm still that grateful." 
+                        <br>❤️<br>
+                        "I really love you, I will stick here with you forever and want you to be with me always."
+                        <div class="mt-3"><i class="fas fa-heart" style="color:#ff517c;"></i> <i class="fas fa-heart" style="color:#ff8da1;"></i> <i class="fas fa-heart" style="color:#ffb6c1;"></i></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger rounded-pill px-4" data-bs-dismiss="modal" style="border-color:#ff5f7c; color:#b34167;">with you, always</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- additional JavaScript‑powered modal (beautiful & custom, but we create a third distinct message) -->
+        <div class="mt-4">
+            <button class="btn btn-love" id="jsModalBtn" style="background-color:#b52b4f;">
+                <i class="fas fa-star me-2"></i>Click for a secret whisper
+            </button>
+        </div>
+
+        <!-- small romantic human note -->
+        <p class="small-note">
+            <i class="fas fa-petal" style="color:#ff99aa;"></i>
+            "In case you ever foolishly forget: I am never not thinking of you." – from a notebook
+        </p>
+        <p class="mt-2" style="color:#cc3f66"><i class="far fa-clock"></i> Valentine's 2026 ... and all the ones after</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Our custom JavaScript for the third modal (sweet, red/pink, with message) -->
+    <script>
+        (function() {
+            // create a modal dynamically using Bootstrap's modal method, but we want beautiful and romantic.
+            // We'll add an event listener to show a custom Bootstrap modal via JavaScript with extra message.
+            
+            // First, ensure we have a modal structure in the DOM (we can inject it via JS, but cleaner: create hidden modal in html via js? 
+            // Better: we prepend a modal to body using JS after load. But we want it to be a "js modal" per request.
+            // I'll create a modal container in JS and append it to body, then show it using Bootstrap.
+            
+            const modalHTML = `
+                <div class="modal fade" id="jsRomanticModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="border: 4px solid #ff99bb;">
+                            <div class="modal-header" style="background:#ffb3d9;">
+                                <h5 class="modal-title fs-1" style="color:#b0306e;"><i class="fas fa-lock-heart"></i> just for you, Prentice</h5>
+                            </div>
+                            <div class="modal-body" style="background: #ffe4f3; font-size:1.5rem;">
+                                <i class="fas fa-heart" style="color:#ff4d6d;"></i> 
+                                "I knew I loved you before I met you, but since 20/06/2024, I've known it every single day. I love you more than any issue, more than any distance. Forever and always, my girl." 
+                                <i class="fas fa-heart" style="color:#ff4d6d;"></i>
+                                <br><span style="font-size:1rem;">— a truth I’ll never stop saying</span>
+                            </div>
+                            <div class="modal-footer" style="background:#ffc2d9;">
+                                <button type="button" class="btn btn-lg rounded-pill" data-bs-dismiss="modal" style="background:#ff3b6f; color:white; border:none;">I'm yours <i class="fas fa-infinity"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // append to body when document ready
+            document.addEventListener('DOMContentLoaded', function() {
+                // check if already exists, avoid duplicates
+                if (!document.getElementById('jsRomanticModal')) {
+                    document.body.insertAdjacentHTML('beforeend', modalHTML);
+                }
+
+                const jsBtn = document.getElementById('jsModalBtn');
+                if (jsBtn) {
+                    jsBtn.addEventListener('click', function() {
+                        // use Bootstrap's modal API to show our custom js modal
+                        const myModalElement = document.getElementById('jsRomanticModal');
+                        if (myModalElement) {
+                            const modalInstance = new bootstrap.Modal(myModalElement);
+                            modalInstance.show();
+                        } else {
+                            alert("modal not found but love is infinite 💕");
+                        }
+                    });
+                }
+            });
+
+            // also we can add floating hearts or extra interactive message using vanilla JS
+            // we create a tiny message with quote "I love you more than all the words" (real human quote)
+            const extraMsg = document.createElement('div');
+            extraMsg.style.marginTop = '20px';
+            extraMsg.style.cursor = 'pointer';
+            extraMsg.innerHTML = '💬 <i>"you are the finest, loveliest, tenderest, and most beautiful person I have ever known."</i> 💬';
+            extraMsg.style.color = '#b32d5c';
+            extraMsg.style.fontSize = '1.1rem';
+            extraMsg.style.backgroundColor = '#fff0f5';
+            extraMsg.style.padding = '10px 20px';
+            extraMsg.style.borderRadius = '50px';
+            extraMsg.style.border = '1px solid #fba0b5';
+            extraMsg.onclick = function() { 
+                alert("— that's you, always. 💝"); 
+            };
+            // wait for DOM
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('.card-love').appendChild(extraMsg);
+            });
+        })();
+    </script>
+
+    
+</body>
+</html>
