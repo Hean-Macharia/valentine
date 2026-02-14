@@ -1,10 +1,9 @@
-from flask import Flask, render_template
-
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def valentine():
-    return render_template('index.html')
+def hello():
+    return "Hello, Render!"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
